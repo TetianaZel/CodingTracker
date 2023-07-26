@@ -1,2 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Microsoft.Data.SqlClient;
+using System.Configuration;
+
+string connectionString = ConfigurationManager.ConnectionStrings["CodingTracker"].ConnectionString;
+
+DatabaseManager databaseManager = new();
+GetUserInput getUserInput = new();
+databaseManager.CreateTable(connectionString);
+
+getUserInput.MainMenu();
